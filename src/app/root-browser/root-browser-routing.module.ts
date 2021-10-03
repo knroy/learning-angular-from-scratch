@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('../app-blog/app-blog.module').then(m => m.AppBlogModule)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('../authentication/authentication.module').then(m => m.AuthenticationModule)
+  },
+  {
     path: '**',
     component: Error404Component
   }

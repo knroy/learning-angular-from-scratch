@@ -8,6 +8,7 @@ import { Error404Component } from './components/error404/error404.component';
 import { AppGenericsModule } from "../app-generics/app-generics.module";
 import { BlogService } from "./services/blog.service";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     RootBrowserRoutingModule,
     AppGenericsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     BlogService
