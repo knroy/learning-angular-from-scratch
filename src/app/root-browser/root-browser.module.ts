@@ -9,6 +9,7 @@ import { AppGenericsModule } from "../app-generics/app-generics.module";
 import { BlogService } from "./services/blog.service";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BackendService } from "./services/backend.service";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     BrowserAnimationsModule
   ],
   providers: [
-    BlogService
+    BlogService,
+    BackendService
   ],
   bootstrap: [
     RootDefaultComponent
