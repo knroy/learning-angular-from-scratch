@@ -10,6 +10,8 @@ import { BlogService } from "./services/blog.service";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BackendService } from "./services/backend.service";
+import { SessionService } from "./services/session.service";
+import { AuthenticationGuard } from "./guards/authentication.guard";
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { BackendService } from "./services/backend.service";
   ],
   providers: [
     BlogService,
-    BackendService
+    BackendService,
+    SessionService,
+    AuthenticationGuard
   ],
   bootstrap: [
     RootDefaultComponent
