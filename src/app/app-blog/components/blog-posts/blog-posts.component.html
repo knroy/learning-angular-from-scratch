@@ -1,5 +1,9 @@
 <div class="blog-posts-wrapper">
 
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button mat-raised-button color="primary" (click)="onWriteNewBlog()">New Blog Posts</button>
+  </div>
+
   <div class="article" *ngFor="let post of blogPosts">
     <h3>{{ post.title }}</h3>
     <p>{{ post.body}}</p>

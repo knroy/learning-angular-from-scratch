@@ -15,9 +15,16 @@ export class AuthenticationGuard implements CanActivate {
 
   }
 
+  cleanUrl(path: string) {
+    if (path.indexOf("?") >= 0) {
+      return path.split("?")[0];
+    }
+    return path;
+  }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    let path = this.location.path();
-    console.log(path);
+    let path = this.location.path(false);
+    path = this.cleanUrl(path);
     let token = this.sessionService.getToken();
     if (token === null || token === undefined) {
       this.router.navigate(['/auth/login'], {queryParams: {redirect: path}});

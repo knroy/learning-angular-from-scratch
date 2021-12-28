@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BlogService } from "../../../root-browser/services/blog.service";
 import { BlogPost } from "../../models/blog-post.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-blog-posts',
@@ -11,7 +12,8 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
 
   blogPosts: BlogPost[] = [];
 
-  constructor(private blogService: BlogService) {
+  constructor(private blogService: BlogService,
+              private router: Router) {
 
   }
 
@@ -27,4 +29,7 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
     console.log('destroy for BlogPostsComponent')
   }
 
+  onWriteNewBlog() {
+    this.router.navigate(['/blog/create']);
+  }
 }
