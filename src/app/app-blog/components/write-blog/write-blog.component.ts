@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { BackendService } from "../../../root-browser/services/backend.service";
 
 @Component({
   selector: 'app-write-blog',
@@ -21,7 +22,7 @@ export class WriteBlogComponent implements OnInit {
     categories: new FormControl('', [])
   })
 
-  constructor() {
+  constructor(private backendService: BackendService) {
 
   }
 
@@ -49,7 +50,10 @@ export class WriteBlogComponent implements OnInit {
     if (this.newBlogPost.valid) {
       let formData: any = this.newBlogPost.getRawValue();
       formData.categories = this.blogCategories;
-      console.log(formData);
+
+      this.backendService.CreateNewBlog(formData).subscribe((response: any) => {
+        console.log(response);
+      })
     }
   }
 }
