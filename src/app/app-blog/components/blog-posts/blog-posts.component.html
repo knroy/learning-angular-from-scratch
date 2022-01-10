@@ -5,8 +5,8 @@
   </div>
 
   <div class="article" *ngFor="let post of blogPosts">
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.body}}</p>
+    <h3>{{ post.Title }}</h3>
+    <p>{{ post.Description}}</p>
     <a routerLink="{{ '/blog/posts/' + post.id }}">View More</a>
   </div>
 

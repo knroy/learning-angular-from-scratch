@@ -32,7 +32,7 @@ export class PostDetailsComponent implements OnInit {
     this.blogService.getPostById(postId).subscribe((response: any) => {
       this.blogPost = response;
       console.log(this.blogPost);
-      this.loadPostUserData(this.blogPost.userId);
+      this.loadPostUserData(this.blogPost.AuthorId);
     })
   }
 

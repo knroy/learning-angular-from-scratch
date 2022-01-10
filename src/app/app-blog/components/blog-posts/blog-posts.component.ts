@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BlogService } from "../../../root-browser/services/blog.service";
 import { BlogPost } from "../../models/blog-post.model";
 import { Router } from "@angular/router";
+import { BackendService } from "../../../root-browser/services/backend.service";
 
 @Component({
   selector: 'app-blog-posts',
@@ -13,16 +14,19 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
   blogPosts: BlogPost[] = [];
 
   constructor(private blogService: BlogService,
-              private router: Router) {
+              private router: Router,
+              private backendService: BackendService) {
 
   }
 
   ngOnInit(): void {
+    this.GetAllBlogPosts();
+  }
 
-    this.blogService.getAllPosts().subscribe((response: any) => {
+  GetAllBlogPosts() {
+    this.backendService.Blogs().subscribe((response: any) => {
       this.blogPosts = response;
     })
-
   }
 
   ngOnDestroy() {

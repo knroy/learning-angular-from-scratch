@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { BackendService } from "../../../root-browser/services/backend.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-write-blog',
@@ -22,7 +23,8 @@ export class WriteBlogComponent implements OnInit {
     categories: new FormControl('', [])
   })
 
-  constructor(private backendService: BackendService) {
+  constructor(private backendService: BackendService,
+              private router: Router) {
 
   }
 
@@ -52,7 +54,7 @@ export class WriteBlogComponent implements OnInit {
       formData.categories = this.blogCategories;
 
       this.backendService.CreateNewBlog(formData).subscribe((response: any) => {
-        console.log(response);
+        this.router.navigate(['/blog/posts']);
       })
     }
   }
