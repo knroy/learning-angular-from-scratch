@@ -7,6 +7,12 @@
   <div class="article" *ngFor="let post of blogPosts">
     <h3>{{ post.Title }}</h3>
     <p>{{ post.Description}}</p>
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="4px" class="margin-top-16">
+      <p fxFlex="none" class="category-item" *ngFor="let category of post.Categories">
+        {{ category }}
+      </p>
+    </div>
+
     <a routerLink="{{ '/blog/posts/' + post.id }}">View More</a>
   </div>
 

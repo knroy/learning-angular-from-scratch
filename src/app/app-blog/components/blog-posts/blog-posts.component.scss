@@ -5,3 +5,15 @@
 .article {
   padding: 20px 0;
 }
+
+.category-item {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.10);
+  padding: 8px;
+  display: inline;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.20);
+  }
+
+}
